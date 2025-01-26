@@ -1,0 +1,26 @@
+/* Theme */
+
+main {
+	background: #1a1a1a;
+	color: #FAFAFA;
+}
+
+.icons-social a {
+	color: #FAFAFA;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.icons-social a:hover {
+	text-shadow: 0 0 8px #FAFAFA;
+}
+
+.icons-social a svg path {
+	fill: #FAFAFA;
+	transition: all 0.3s ease;
+}
+
+.icons-social a:hover svg path {
+	fill: #FFFFFF;
+	filter: drop-shadow(0 0 10px #FAFAFA);
+}
