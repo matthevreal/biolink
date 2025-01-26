@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title></title>
+
+	<link rel="icon" href="favicon.ico" type="image/png" />
+
+	<link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/themes/grey-white.css">
+	<style>
+		.profile-pic {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			margin: 0 auto;
+			display: block;
+			border: 3px solid #ccc;
+			object-fit: cover;
+		}
+
+		.intro {
+			margin-top: 10px;
+			text-align: center;
+			font-size: 24px;
+		}
+
+		.tagline {
+			font-family: "Roboto", sans-serif;
+			font-size: 20px;
+			color: #ffffff;
+			text-align: center;
+			margin-top: 10px;
+			height: 30px;
+			overflow: hidden;
+			white-space: nowrap;
+			border-right: 2px solid #555;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+
+		@keyframes blink {
+			50% {
+				border-color: transparent;
+			}
+		}
+
+		.tagline {
+			animation: blink 0.8s step-end infinite;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<img class="profile-pic" src="img/pfp.png" alt="nig">
+		<div class="intro">@matthew</div>
+		<div class="tagline" id="tagline"></div>
+		<div class="icons-social">
+			<a target="_blank" href="https://github.com/matthevreal">
+				<i class="fab fa-github" aria-hidden="true" title="Github"></i>
+				<span class="sr-only">Github</span>
+			</a>
+			<a target="_blank" href="https://t.me/matthevreal">
+				<i class="fab fa-telegram" aria-hidden="true" title="Telegram"></i>
+				<span class="sr-only">Telegram</span>
+			</a>
+			<a target="_blank" href="https://discord.com/users/1331919701584121856">
+				<i class="fab fa-discord" aria-hidden="true" title="discord"></i>
+				<span class="sr-only">Discord</span>
+			</a>
+		</div>
+	</main>
+
+	<script>
+		const tagline = document.getElementById("tagline");
+		const text = "sanity is overrated";
+		let index = 0;
+		let deleting = false;
+
+		function typeEffect() {
+			if (!deleting) {
+				tagline.textContent = text.substring(0, index);
+				index++;
+				if (index > text.length) {
+					deleting = true;
+					setTimeout(typeEffect, 1000);
+					return;
+				}
+			} else {
+				tagline.textContent = text.substring(0, index);
+				index--;
+				if (index < 0) {
+					deleting = false;
+					setTimeout(typeEffect, 1000);
+					return;
+				}
+			}
+			setTimeout(typeEffect, deleting ? 50 : 100);
+		}
+
+		const titleText = "matthew | cloudbin.cfd";
+		let titleIndex = 0;
+
+		function typeTitleEffect() {
+			document.title = titleText.substring(0, titleIndex);
+			titleIndex++;
+			if (titleIndex > titleText.length) {
+				titleIndex = 0;
+			}
+			setTimeout(typeTitleEffect, 150);
+		}
+
+		typeEffect();
+		typeTitleEffect();
+	</script>
+</body>
+</html>
